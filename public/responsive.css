@@ -1,0 +1,255 @@
+@media only screen and (max-width: 500px) {
+    .scoreboardtitle {
+        font-size: 28px;
+    }
+    .h2 {
+        font-size: 22px;
+    }
+    .questionimage {
+        width: 97% !important;
+        margin: 0 auto;
+    }
+    .mycontainer {
+        max-width: 95%;
+        margin: 0 auto;
+    }
+    .option {
+        display: block;
+        margin: 10px auto;
+    }
+    .ans {
+        display: block;
+        margin: 10px auto;
+        /* width: 90%; */
+    }
+    .ans-person {
+        flex-wrap: nowrap;
+        /* order: 2; */
+    }
+    .ans-person h4 {
+        font-size: 33px;
+    }
+    .chart {
+        margin: 10px 0;
+    }
+    .table {
+        margin: 20px auto 0;
+    }
+    .qpage-mid {
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+    .qimg {
+        display: 100%;
+    }
+    .joinbtn{
+        margin-bottom: 0 !important;
+        }
+}
+
+@media only screen and (max-width: 768px) {
+    .mycontainer {
+        width: 500px;
+    }
+    .ans-person {
+        width: 50%;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        /* order: 2; */
+    }
+    .qimg {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        margin: 10px 0;
+        /* order: 3; */
+    }
+    .joinbtn{
+        margin-bottom: 0 !important;
+        }
+    /* iframe{
+        display: none;
+    }
+    .subbody{
+        display: block;
+    }
+    .subbody2{
+        display: none;
+    } */
+}
+
+@media only screen and (min-width: 500px) {
+    body {
+        background: url(/Background.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .rankpage {
+        background: url(/b2.png);
+        background-size: cover;
+        /* height: inherit; */
+      }
+      .share_l{
+        display: block;
+      }
+      .share_p{
+        display: none;
+      }
+      .pTxt {
+        font-size: 22px;
+      }  
+    .sTxt {
+        font-size: 22px;
+    }
+    .rScore{
+        font-size: 22px;
+    }
+    .rNametxt {
+        font-size: 22px;
+        margin-bottom: 0px;
+    }
+    .joinbtn {
+        width: 150px;
+    }
+    .h2 {
+        padding-top: 0;
+    }
+    .logobottom {
+        width: 30%;
+    }
+    .logoimg {
+        width: 50%;
+        margin-top: 0;
+    }
+    .option {
+        display: inline-block;
+        width: 46%;
+        margin: 10px 1%;
+    }
+    .ans {
+        display: inline-block;
+        width: 46%;
+        margin: 10px 1%;
+    }
+    .active {
+        height: inherit !important;
+        border: 0;
+        order: 1;
+        font-size: 19px;
+        width: 23px !important;
+    }
+    .live::after {
+        content: " :";
+    }
+    .qac {
+        position: absolute;
+        top: 62px;
+        right: 0;
+        align-items: center;
+        display: flex;
+        background: #fff;
+    }
+    .tac {
+        width: 80px;
+        height: 80px;
+    }
+    .qpage-mid {
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+    .qimg {
+        width: 40%;
+    }
+    .qans {
+        order: -1;
+    }
+    .bottom {
+        display: flex;
+    }
+    .blogos {
+        display: none;
+    }
+    .sb2blogo {
+        display: flex;
+    }
+    .logoimg2 {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    /* body{
+        background-image: url(/bgimg.png);
+        background-size: cover;
+    } */
+    .mycontainer {
+        max-width: 500px;
+    }
+    .logoimg {
+        width: 29% !important;
+        margin-top: 0;
+        margin-bottom: 0 !important;
+    }
+    .h2 {
+        padding: 5px 20px;
+    }
+    .inputfield {
+        padding: 10px 15px;
+        margin: 0 auto 14px;
+    }
+    .bl1,
+    .bl2 {
+        width: 38%;
+    }
+    .bi {
+        width: 24%;
+    }
+    .logobottom {
+        width: 30%;
+    }
+    .questionimage {
+        margin: 20px 0;
+    }
+    iframe {
+        display: block;
+        height: 540px;
+        width: 360px;
+        border: 0;
+        box-shadow: -7px -7px 20px #00000080;
+    }
+    /* .subbody{
+        display: none;
+    } */
+    .subbody2 {
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        height: 100vh;
+    }
+    /* body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    } */
+}
+
+@media only screen and (min-width: 1024px) {
+    .mycontainer {
+        max-width: 700px;
+    }
+    .logoimg {
+        /* width: 38%; */
+    }
+}
+
+@media only screen and (min-width: 1350px) {
+    .mycontainer {
+        max-width: 900px;
+    }
+    body {
+        background-size: cover;
+    }
+}

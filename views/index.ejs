@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@700&amp;family=Quicksand&amp;display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>QUIZ</title>
+</head>
+
+<body>
+    <section id="welcomepage" class="welcomepage">
+        <div class="mycontainer">
+            <h2 class="h2">Fill Your Details To Join</h2>
+            <form action="" class="joinform" onsubmit="loadmulti(event)">
+                <input type="text" id="username" class="inputfield" placeholder="Enter Your Name">
+                <input type="text" id="usermobile" class="inputfield" placeholder="Enter Your Mobile Number">
+                <input type="submit" id="join" value="JOIN" class="joinbtn">
+            </form>
+        </div>
+    </section>
+    <section id="questionspage" class="questionspage">
+        <div class="mycontainer">
+            <div class="qblock">
+                <h3 class="question"></h3>
+            </div>
+            <div class="qpage-mid">
+                <div class="time">
+                    <div id="app"></div>
+                </div>
+                <div class="qimg">
+                    <img src="images/gallery.png" class="questionimage" alt="">
+                </div>
+                <div class="ans-person">
+                   <h4>Answers</h4> 
+                   <h4>100  </h4>
+                </div>
+            </div>
+            <div class="opblock">
+                <button class="option">
+                    <input type="radio" name="answer" id="ans1" class="answer" value="">
+                    <label for="ans1" id="option1"></label>
+                </button>
+                <button class="option">
+                    <input type="radio" name="answer" id="ans2" class="answer" value="">
+                <label for="ans2" id="option2"></label>
+                </button>
+                <button class="option">
+                    <input type="radio" name="answer" id="ans3" class="answer" value="">
+                <label for="ans3" id="option3"></label>
+                </button>
+                <button class="option">
+                    <input type="radio" name="answer" id="ans4" class="answer" value="">
+                <label for="ans4" id="option4"></label>
+                </button>
+            </div>
+            <button class="next-btn" onclick="loadanswerpage()">
+                Next
+            </button>
+            
+    </section>
+    <section id="answerpage" class="answerpage">
+        <div class="mycontainer">
+            <div class="qblock">
+                <h3 class="question" id="question"></h3>
+            </div>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                google.charts.load("current", { packages: ['corechart'] });
+                google.charts.setOnLoadCallback(drawChart);
+                function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                        ["Element", "Density", { role: "style" }],
+                        ["A", 8.94, "#b87333"],
+                        ["B", 10.49, "silver"],
+                        ["C", 13.30, "gold"],
+                        ["D", 21.45, "color: #e5e4e2"]
+                    ]);
+
+                    var view = new google.visualization.DataView(data);
+                    view.setColumns([0, 1,
+                        {
+                            calc: "stringify",
+                            sourceColumn: 1,
+                            type: "string",
+                            role: "annotation"
+                        },
+                        2]);
+
+                    var options = {
+                        // title: "Density of Precious Metals, in g/cm^3",
+                        // width: 60,
+                        // height: 40,
+                        bar: { groupWidth: "75%" },
+                        legend: { position: "none" },
+                        vAxis: {
+                            gridlines: {
+                                count: 0
+                            }
+                        },
+                        textPosition: 'none',
+                        backgroundColor: 'transparent',
+                        is3D: true,
+                    };
+                    var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+                    chart.draw(view, options);
+                }
+            </script>
+            <div class="chart">
+                <div id="columnchart_values"></div>
+            </div>
+
+            <div class="ansblock">
+                <button class="ans">
+                    <p>ans-1</p>
+                </button>
+                <button class="ans">
+                    <p>ans-2</p>
+                </button>
+                <button class="ans">
+                    <p>ans-3</p>
+                </button>
+                <button class="ans">
+                    <p>ans-4</p>
+                </button>
+            </div>
+            <button class="next-btn" onclick="loadscoreboard()">
+                Next
+            </button>
+        </div>
+    </section>
+    <section class="scoreboard" id="scoreboard">
+        <div class="mycontainer">
+            <div class="qblock">
+                <h3 class="question">SCOREBOARD</h3>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>1</th>
+                    <th>Jatin nakrani</th>
+                    <th>1000</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>jatin nakrani</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>jatin nakrani</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>jatin nakrani</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>jatin nakrani</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>jatin nakrani</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>jatin nakrani</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>jatin nakrani</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>jatin nakrani</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>jatin nakrani</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>jatin nakrani</td>
+                    <td>1000</td>
+                </tr>
+            </table>
+            <button class="next-btn" onclick="loadquestionspage2()">
+                Next
+            </button>
+        </div>
+    </section>
+    <section class="multi" id="multi"> 
+        abdhudhweiofjoaej
+    </section>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/script.js"></script>
+<script>
+     const socket = io();
+     const question = document.querySelector('#question')
+    const option1 = document.querySelector('#option1')
+    const option2 = document.querySelector('#option2')
+    const option3 = document.querySelector('#option3')
+    const option4 = document.querySelector('#option4')
+    const submit = document.querySelector('#submit')
+    const answers = document.querySelectorAll('.answer')
+     let userName = "";
+    let questionCount = 0
+    let score = 0
+    const newUserConnected = (user) => {
+        userName = user || `User${Math.floor(Math.random() * 1000000)}`;
+        socket.emit('new user', userName);
+        addToUsersBox(userName);
+    }
+
+    const addToUsersBox = (userName) => {
+        if (!!document.querySelector(`.${userName}-userlist`)) {
+            return;
+        }
+
+        const userBox = `
+        <div class="chat_ib ${userName}-userlist">
+            <h5>${userName}</h5>
+        </div>    
+        `;
+        inboxPeople.innerHTML += userBox;
+    }
+
+    newUserConnected();
+
+    socket.on('new user', function (data) {
+        data.map((user) => addToUsersBox(user));
+    });
+
+    socket.on('user disconnected', function (userName) {
+        document.querySelector(`.${userName}-userlist`).remove();
+    });
+    socket.on('question', function (data) {
+        console.log("load ques"+data)
+        const loadQ = () => {
+            const questionList = data.q
+            question.innerHTML = questionList.description
+            option1.innerHTML = questionList.alternatives[0].text
+            option2.innerHTML = questionList.alternatives[1].text
+            option3.innerHTML = questionList.alternatives[2].text
+            option4.innerHTML = questionList.alternatives[3].text
+            $('#ans1').val(questionList.alternatives[0].isCorrect)
+            $('#ans2').val(questionList.alternatives[1].isCorrect)
+            $('#ans3').val(questionList.alternatives[2].isCorrect)
+            $('#ans4').val(questionList.alternatives[3].isCorrect)
+        }
+        loadQ()
+        startTimer(data.q.time, data.index, data.length);
+    });
+</script>
+</html>

@@ -1,0 +1,106 @@
+<style>
+    .h2 {
+        font-size: 28px;
+        font-family: 'Poppins', sans-serif;
+        color: #000;
+        margin: 0;
+        padding: 10px 0;
+
+    }
+
+    .abtn:active {
+        background: transparent;
+        color: #000;
+        border: 2px solid #000;
+    }
+
+    .abtn {
+        border: 0;
+        color: white;
+        font-weight: 300;
+        background-image: linear-gradient(to right, #a900f1, #3b81f8);
+        display: block;
+        /* margin: 20px 0 0; */
+        padding: 12px 35px;
+        border-radius: 100px;
+    }
+</style>
+<h2 class="h2">Active users : <span id="active_count"></span></h2>
+<input type="button" value="start" onclick="startTimer(5)" class="abtn">
+<h2 id="index" class="h2"></h2>
+<!-- <input type="button" value="next" onclick="next()"  class="abtn"/> -->
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    let index = 0;
+
+    // var milisecond = 0;
+
+    function startTimer(time) {
+        console.log(" before " + time)
+        var interval = setInterval(timer, 1000);
+        // var milisecond = setInterval(()=>{ms++}, 1);
+        // let time_ele = document.getElementById("timer");
+        socket.emit("early user", {time})
+
+        function timer() {
+            socket.emit("left time", {time})
+            time--;
+            console.log("in time " +time)
+            if (time == -1) {
+                clearInterval(interval);
+                start()
+            }
+        }
+    }
+    function start() {
+        socket.emit("start game", "start");
+    }
+
+    socket.on('active number', function (data) {
+        document.getElementById('active_count').innerHTML = data;
+    })
+    
+
+    socket.on('index admin', function (data) {
+        index = data.index
+        document.getElementById('index').innerHTML = "current question number: " + data.index;
+    })
+
+    // function next() {
+    //     socket.emit('next', { index: index });
+    // }
+
+     // console.log("success")
+    // let docs2 = '<%- JSON.stringify(Qs) %>';
+    // console.log(typeof docs2);
+    // let docs = JSON.parse(docs2);
+    // let time_ele = document.getElementById("timeleft").innerHTML;
+    // var options = document.getElementById("option");
+    // var empty = document.getElementById("empty");
+    // // console.log(docs[0]);
+    // docs.forEach(element => {
+    //     if(element.time) {
+    //         empty.innerText = "";
+    //         let timeleft = element.time;
+    //         document.getElementById("timeleft").innerHTML = element.time; 
+    //         document.getElementById("question").innerHTML = element.description;
+    //         console.log(element.description)
+    //         element.alternatives.forEach(option => { 
+    //             var input = document.createElement("input");
+    //             input.type = "button";
+    //             input.value = option.text;
+    //             options.appendChild(input);  
+    //         });
+    //         setInterval(() => {
+    //         if(timeleft>0){
+    //             console.log("timeleft: " + timeleft);
+    //             timeleft--;
+    //             time_ele = timeleft;
+    //         }
+    //         }, 1000);
+
+    //         empty.innerHTML = "empty";
+    //     }
+    // });
+</script>

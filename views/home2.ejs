@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/responsive.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600;700;800&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <title>QUIZ</title>
+</head>
+<style>
+    .ansblock {
+        display: none;
+    }
+</style>
+
+<body id="body">
+
+    <div class="subbody">
+
+        <section class="rankpage" id="rankpage">
+            <div class="rankMain">
+                <h2 class="rTitle">
+                    Summary
+                </h2>
+                <div class="rName">
+                    <p class="rNametxt" id="rNametxt">
+                        Pawan Shingala
+                    </p>
+                    <button class="shareBtn share_p" id="shareBtn" onclick="download_image_p()"><i
+                            class="material-icons shareIcon" style="color: #000;">share</i></button>
+                    <button class="shareBtn share_l" id="shareBtn" onclick="download_image_l()"><i
+                            class="material-icons shareIcon" style="color: #000;">share</i></button>
+                    <a href="" id="download_score" download="score.png"></a>
+                    <canvas id="canvas" style="display: none;"> </canvas>
+                    <img src="/b4.png" id="framel" style="display: none;">
+                    <img src="/b3.png" id="framep" style="display: none;">
+                    <p class="lBtn"><i class="material-icons lIcon" style="color: #000;">people_outline</i> Live </p>
+                </div>
+                <div class="rsMain">
+                    <div class="rankBox" style="margin-right: 13px;">
+                        <p class="rRank">Rank</p>
+                        <p class="rScore" id="rScore">1/10</p>
+                        <img src="/2.png" class="rImg">
+                    </div>
+                    <div class="rankBox" style="margin-left: 13px;">
+                        <p class="rRank">Score</p>
+                        <p class="rScore" id="rScore_score">8051</p>
+                        <img src="/1.png" class="rImg">
+                    </div>
+                </div>
+
+                <h5 class="pTxt">Performance Status</h5>
+                <div class="pStatus">
+                    <div class="rAns">
+                        <div class="pScore">
+                            <div class="sImg">
+                                <img src="/4.png" class="" alt="">
+                            </div>
+                            <p class="sTxt" id="sTxt">9</p>
+                        </div>
+                        <p class="correct">Correct</p>
+                    </div>
+
+                    <div class="rAns">
+                        <div class="pScore">
+                            <div class="sImg">
+                                <img src="/3.png" class="" alt="">
+                            </div>
+                            <p class="sTxt" id="sTxt_in">1</p>
+                        </div>
+                        <p class="correct">Incorrect</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="welcomepage" class="welcomepage">
+            <!-- <audio src="/audio.mp3"  controls autoplay loop></audio> -->
+            <div id="clock"></div>
+            <div class="mycontainer page1">
+                <img src="/image6.png" class="logoimg" alt="">
+                <div class="form">
+                    <h2 class="h2">Fill Your Details to join</h2>
+                    <form onsubmit="addEntry(event)">
+                        <input type="text" name="username" id="username" placeholder="Enter your name"
+                            class="inputfield">
+                        <input type="number" name="mobile_number" id="mobile_number"
+                            placeholder="Enter your mobile number" class="inputfield">
+                        <input type="email" name="email" id="email" placeholder="Enter your email" class="inputfield">
+                        <input type="text" name="clinicname" id="clinicname" placeholder="Enter your clinic name"
+                            class="inputfield">
+                        <input type="submit" id="join" value="JOIN" class="joinbtn inputfield">
+                        <!-- <p id="response"></p> -->
+                        <!-- <p id="active_count"></p> -->
+                    </form>
+                </div>
+                <div class="blogos">
+                    <img src="/img1.png" alt="" class="logobottom">
+                    <img src="/img2.png" alt="" class="logobottom">
+                    <img src="/img3.png" alt="" class="logobottom">
+                    <img src="/img1.png" alt="" class="logobottom">
+                    <img src="/img5.png" alt="" class="logobottom">
+                    <img src="/img6.png" alt="" class="logobottom">
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="bl1">
+                    <div class="l1"> <img src="/img1.png"></div>
+                    <img src="/img5.png">
+                    <img src="/img4.png">
+                </div>
+                <div class="bi">
+                    <img src="/bimg.png" alt="">
+                </div>
+                <div class="bl2">
+                    <div class="l1"><img src="/img2.png"></div>
+                    <img src="/img6.png">
+                    <img src="/img3.png">
+                </div>
+            </div>
+        </section>
+        <section id="questionspage" class="questionspage">
+            <div class="mycontainer">
+
+                <div class="qb">
+                    <div class="questiono">
+                        <p class="qc">Question <span class="qcount" id="qcount1"> </span></p>
+                        <!-- <img src="/mimg.png" class="mimg" alt=""> -->
+                        <img src="" alt="" id="single-multi" class="mimg">
+                    </div>
+                    <hr>
+                    <div class="qblock">
+                        <h3 class="question" id="ques"></h3>
+                    </div>
+                    <div class="mid1">
+
+                        <div class="qpage-mid">
+                            <div class="qimg">
+                                <img src="/gimg.png" class="questionimage" id="questionimage" alt="">
+                            </div>
+                            <div class="qac">
+                                <div class="tac active"><span id="active_count">0</span></div>
+                                <p class="live"> <i class="fa fa-circle"></i> LIVE</p>
+                            </div>
+                            <div class="qans">
+                                <div class="tac answer"><span id="answer_count">0</span></div>
+                                <p>ANSWER</p>
+                            </div>
+                            <div class="qtime">
+                                <div class="tac time"><span id="timer">00</span> </div>
+                                <p>TIME</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    </p>
+                    <!-- <div class="time"> -->
+
+                    <!-- </div> -->
+                </div>
+
+                <!-- <div class="qimg">
+                    <img src="" class="questionimage" id="questionimage" alt="">
+                </div> -->
+
+                <div class="opblock" id="options">
+                </div>
+                <div class="ansblock" id="ansblock">
+                    <input type="button" class="ans" id="a1" value="">
+
+
+                    <input type="button" class="ans" id="a2" value="">
+
+
+                    <input type="button" class="ans" id="a3" value="">
+
+
+                    <input type="button" class="ans" id="a4" value="">
+                </div>
+                <!-- <button class="next-btn">
+                    SUBMIT
+                </button> -->
+            </div>
+            <div class="sb2blogo">
+                <div class="b2"><img src="/img1.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img2.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img3.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img4.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img5.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img6.png" alt="" class="blogo2"></div>
+            </div>
+            <img src="/image6.png" class="logoimg2" alt="">
+
+
+
+        </section>
+        <section id="answerpage" class="answerpage">
+
+            <div class="mycontainer">
+                <div class="questiono">
+                    <p class="qc">Question <span class="qcount" id="qcount2"> </span></p>
+                    <!-- <img src="/mimg.png" class="mimg" alt=""> -->
+                    <img src="" alt="" id="single-multi" class="mimg">
+                </div>
+                <hr>
+                <div class="qblock">
+                    <h3 class="question" id="question"></h3>
+                </div>
+                <!-- <div class="qimg">
+                <img src="/gimg.png" class="questionimage" id="questionimage2" alt="">
+            </div> -->
+
+                <div class="chart">
+                    <div id="columnchart_values"></div>
+                </div>
+
+                <!-- <div class="ansblock">
+                    <input type="button" class="ans" id="a1" value="">
+
+
+                    <input type="button" class="ans" id="a2" value="">
+
+
+                    <input type="button" class="ans" id="a3" value="">
+
+
+                    <input type="button" class="ans" id="a4" value="">
+
+
+                </div> -->
+                <!-- <button class="next-btn" onclick="loadscoreboard()">
+                Next
+            </button> -->
+            </div>
+            <div class="sb2blogo">
+                <div class="b2"><img src="/img1.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img2.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img3.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img4.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img5.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img6.png" alt="" class="blogo2"></div>
+            </div>
+            <img src="/image6.png" class="logoimg2" alt="">
+        </section>
+        <section class="scoreboard" id="scoreboard">
+            <div class="mycontainer">
+                <div class="qblock sb">
+                    <h3 class="scoreboardtitle">SCOREBOARD</h3>
+                </div>
+                <table id="tb1" class="tb1"></table>
+                <table class="table"></table>
+                <!-- <button class="next-btn" onclick="loadquestionspage2()">
+                Next
+            </button> -->
+            </div>
+            <div class="sb2blogo">
+                <div class="b2"><img src="/img1.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img2.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img3.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img4.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img5.png" alt="" class="blogo2"></div>
+                <div class="b2"><img src="/img6.png" alt="" class="blogo2"></div>
+            </div>
+            <img src="/image6.png" class="logoimg2" alt="">
+        </section>
+        <section class="multi" id="multi">
+            <div style="display: flex;
+            justify-content : center;
+            align-items : center;
+            height:93vh;
+            width: 100%;
+            flex-flow: column;
+            ">
+
+                <h2 id="startHeading"></h2>
+                <div class="rtime_show" id="rtime_show">
+                    <h1 class="rtime" id="rtime">
+                        20
+                    </h1>
+
+                </div>
+            </div>
+        </section>
+        <!-- <section id="ads">
+            <div>Hello</div>
+        </section> -->
+        <!-- <div class="subbody2">
+        <div class="sb2-1">
+            <div class="sb2logo">
+                <img src="/image8.png" alt="">
+            </div>
+            <div class="sb2body">
+                <div class="content">
+                <iframe src="http://localhost:2322/g/2" id="myiframes" class="myiframes"></iframe>
+            </div>
+            </div>
+        </div>
+        <div class="sb2blogo">
+            <div class="b2"><img src="/img1.png" alt="" class="blogo2"></div>
+            <div class="b2"><img src="/img2.png" alt="" class="blogo2"></div>
+            <div class="b2"><img src="/img3.png" alt="" class="blogo2"></div>
+            <div class="b2"><img src="/img4.png" alt="" class="blogo2"></div>
+            <div class="b2"><img src="/img5.png" alt="" class="blogo2"></div>
+            <div class="b2"><img src="/img6.png" alt="" class="blogo2"></div>
+        </div>
+    </div> -->
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="/script.js"></script>
+<script>
+    //  
+    // window.onload = function () {
+
+    //     let frameElement = document.getElementById("myiframes");
+    //     let dc = frameElement.contentDocument;
+    //     dc.head.innerHTML = dc.head.innerHTML + "<style> .blogos{display: none;} .logoimg {display: none;} .page1{max-width: 95%; display: flex; height: 100vh; justify-content: center; align-items: center; } .form {width: 91%;} .h2 {padding: 26px 0;}</style>"
+    //     let doc = frameElement.contentDocument;
+    //     console.log("hii")
+    //     doc.body.innerHTML = doc.body.innerHTML + `<style> .blogos{display: none;} .logoimg {display: none;}</style><script>// $(#${elmId}).css('border', '2px solid #41AD01')});`
+
+    // }
+
+    let userId = '';
+    let answer = '';
+    let current_Q = {};
+    let count = 0;
+    var temp = 1;
+    let rank = -1;
+    let qLength = 0
+    let qNumber = 1
+    const correct = document.querySelectorAll('.ans')
+
+    var { op_a, op_b, op_c, op_d } = 0;
+    function addEntry(event) {
+        event.preventDefault();
+        let name = $("#username").val();
+        let mobile_number = $("#mobile_number").val();
+        let email = $("#email").val();
+        let clinic_name = $("#clinicname").val();
+
+        $.ajax({
+            url: '/g/signup',
+            method: 'POST',
+            data: { name, mobile_number, email, clinic_name },
+            success: function (data, status, xhr) {
+                console.log("status: " + status + "data: " + data);
+                if (!data.status) {
+                    alert('choose unique mobile number');
+                    location = location
+                } else {
+                    userId = data.user._id;
+
+                    let anspage = document.getElementById('welcomepage');
+                    let Mtime = document.getElementById('multi')
+                    // let sbpage = document.getElementById('multi');
+                    // let qpage = document.getElementById('questionspage');
+                    anspage.style.display = ('none');
+                    Mtime.style.display = ('block');
+                    // qpage.style.display = ('block');
+                    // let body = document.getElementById('body');
+                    // body.style.background = ('#BAFFC9');
+                    // setTimeout(function () {
+                    //     let qpage = document.getElementById('questionspage');
+                    //     sbpage.style.display = ('none');
+                    //     qpage.style.display = ('block');
+                    //     // let body = document.getElementById('body');
+                    //     // body.style.background = ('#cce2cb');
+                    // }, 3000);
+                    connectSocket(userId);
+                }
+
+
+                // connectSocket(data.username);
+
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+                $("p").append("Error: " + errorMessage);
+            }
+        });
+
+    }
+
+    const socket = io();
+
+    function connectSocket(user) {
+        let userName = user;
+        socket.emit('new user', userName);
+        // socket.on('question', function(data){
+        //     console.log(" data is"+data)
+        // })
+        // game_status_check();
+    }
+
+    // socket.on('game status', function (data) {
+    //     game_status = data.game_status;
+    //     game_status_check();
+    // })
+
+    // function game_status_check() {
+    //     if (!game_status) {
+    //         $('#game_status').text('game not started.')
+    //         // document.getElementById("gameS")
+    //     } else if (Object.keys(current_Q).length === 0 && current_Q.constructor === Object) {
+    //         $('#game_status').text('wait for next question.');
+    //     } else {
+    //         $('#game_status').text('')
+    //     }
+    // }
+    //     console.log("lngth"+qLength)
+    // $('.qcount').html = qLength
+    socket.on('left time frontend', function (data) {
+        console.log("inisde this")
+        console.log("data is " + JSON.stringify(data))
+        if (data == 0) {
+            console.log("yes")
+            document.getElementById("rtime").innerText = 'wait for quiz to start'
+        } else {
+            firstTimer(data - 2)
+        }
+    })
+    socket.on('early user frontend', function (data) {
+        console.log(JSON.stringify(data))
+
+        firstTimer(data.time)
+    })
+
+    function firstTimer(time) {
+        var interval = setInterval(timer, 1000);
+        // var milisecond = setInterval(()=>{ms++}, 1);
+        var first_time = document.getElementById("rtime");
+        function timer() {
+            time--;
+            // console.log("in time " + time)
+            if (time <= 0) {
+                clearInterval(interval);
+
+                // start()
+            }
+            document.getElementById("startHeading").innerText = 'Your Quiz will start in...'
+            document.getElementById("rtime_show").classList.add("rtime_show_style");
+            first_time.innerText = time
+        }
+    }
+    socket.on('client', function (data) {
+        console.log()
+        document.getElementById("active_count").innerHTML = data;
+    });
+    var ms = 0;
+    var Q_index_count;
+    var total_Q_number;
+    socket.on('question', function (data) {
+        console.log('question');
+        if (userId) {
+            document.getElementById("options").style.display = "block"
+            document.getElementById("ansblock").style.display = "none"
+            let qpage = document.getElementById('questionspage');
+            let mtime = document.getElementById('multi')
+            mtime.style.display = ('none');
+            qpage.style.display = ('block');
+            // qLength = data.q.length
+            // qNumber = data.index + 1
+            Q_index_count = data.index;
+            console.log("legtn" + data.index)
+            console.log('number' + data.length)
+            document.getElementById('qcount1').innerText = `${data.index + 1}/${data.length}`;
+            document.getElementById('qcount2').innerText = `${data.index + 1}/${data.length}`;
+            var { op_a, op_b, op_c, op_d } = 0;
+
+            current_Q = data.q;
+            count = 0;
+            ms = 0;
+            console.log('new question: ' + ms);
+            if (current_Q.type == "single") {
+                document.getElementById('single-multi').src = '/single.png'
+            }
+            if (current_Q.type == 'multiple') {
+                document.getElementById('single-multi').src = '/multi.png'
+            }
+            // $('.ques').html = current_Q.description
+            let anspage = document.getElementById('scoreboard');
+            let qspage = document.getElementById('questionspage');
+            // let sbpage = document.getElementById('multi');
+            anspage.style.display = ('none');
+            qspage.style.display = ('block');
+            // sbpage.style.display = ('block');
+
+            // setTimeout(function () {
+            //     let qpage = document.getElementById('questionspage');
+            //     sbpage.style.display = ('none');
+            //     qpage.style.display = ('block');
+
+            // }, 3000);
+            // loadquestionspage2()
+            document.getElementById('questionimage').src = `https://femaleworkout-node.s3.ap-south-1.amazonaws.com/banner/${current_Q.image}`;
+            document.getElementById("question").innerText = current_Q.description;
+            document.getElementById("ques").innerText = current_Q.description;
+            document.getElementById("options").innerHTML = '';
+            if (current_Q.type == "single") {
+                let html = '';
+                // html += '<input  class="option" type="button" onclick="btnClick(\'q0\')" id="q0"/>';
+                // html += '<input  class="option" type="button" onclick="btnClick(\'q1\')" id="q1"/>';
+                // html += '<input  class="option" type="button" onclick="btnClick(\'q2\')" id="q2"/>';
+                // html += '<input  class="option" type="button" onclick="btnClick(\'q3\')" id="q3"/>';
+                html += `<button class="option op-1" id="q0" onclick="btnClick(\'q0\')"><span class="option-span">A</span>${(current_Q.alternatives[0].text)}</button>`;
+                html += `<button class="option op-2" id="q1" onclick="btnClick(\'q1\')"><span class="option-span">B</span>${(current_Q.alternatives[1].text)}</button>`;
+                html += `<button class="option op-3" id="q2" onclick="btnClick(\'q2\')"><span class="option-span">C</span>${(current_Q.alternatives[2].text)}</button>`;
+                html += `<button class="option op-4" id="q3" onclick="btnClick(\'q3\')"><span class="option-span">D</span>${(current_Q.alternatives[3].text)}</button>`;
+                document.getElementById("options").innerHTML += html
+            } else if (current_Q.type == "multiple") {
+                let wpage = document.getElementById('welcomepage');
+                let mpage = document.getElementById('multi');
+                wpage.style.display = ('none');
+                mpage.style.display = ('block');
+                // let body = document.getElementById('body');
+                // body.style.background = ('#BAFFC9');
+                setTimeout(function () {
+                    let qpage = document.getElementById('questionspage');
+                    mpage.style.display = ('none');
+                    qpage.style.display = ('block');
+                    // let body = document.getElementById('body');
+                    // body.style.background = ('#cce2cb');
+                }, 3000);
+                let html = '';
+                current_Q.alternatives.forEach(element => {
+                });
+                // html += '<input   type="checkbox" id="q0"><label class="option" for="q0" id="l0" ></label>';
+                // html += '<input   type="checkbox" id="q1"><label class="option" for="q1" id="l1"></label>';
+                // html += '<input  type="checkbox" id="q2"><label class="option" for="q2" id="l2"></label>';
+                // html += '<input   type="checkbox" id="q3"><label class="option"  for="q3" id="l3"></label>';
+                // html += '<input   type="button" value="submit" id="submit" onclick="btnSubmit()" />';
+                html += `<label for="q0" class="option op-1" id="l0" disable> <input type="checkbox" id ="q0" onchange="disb(\'l0\')"><span class="option-span">A</span>${(current_Q.alternatives[0].text)}</label >`;
+                html += ` <label for="q1" class="option op-2" id="l1"><input type= "checkbox" id ="q1" onchange="disb(\'l1\')"> <span class="option-span">B</span>${(current_Q.alternatives[1].text)}</label > `;
+                html += `<label for="q2" class="option op-3" id="l2"> <input type= "checkbox" id = "q2" onchange="disb(\'l2\')"><span class="option-span">C</span>${(current_Q.alternatives[2].text)}</label > `;
+                html += `<label for="q3" class="option op-4" id="l3"><input type= "checkbox" id = "q3" onchange="disb(\'l3\')"><span class="option-span">D</span>${(current_Q.alternatives[3].text)}</label > `;
+                html += ' <input class="next-btn" type= "button" value = "submit" id = "submit" onclick="btnSubmit()" />';
+                document.getElementById("options").innerHTML += html;
+                // $("#l0").text(current_Q.alternatives[0].text);
+                // $("#l1").text(current_Q.alternatives[1].text);
+                // $("#l2").text(current_Q.alternatives[2].text);
+                // $("#l3").text(current_Q.alternatives[3].text);
+            }
+            $("#q0").val(current_Q.alternatives[0].text);
+            $("#q1").val(current_Q.alternatives[1].text);
+            $("#q2").val(current_Q.alternatives[2].text);
+            $("#q3").val(current_Q.alternatives[3].text);
+            $("#a1").val(current_Q.alternatives[0].text);
+            $("#a2").val(current_Q.alternatives[1].text);
+            $("#a3").val(current_Q.alternatives[2].text);
+            $("#a4").val(current_Q.alternatives[3].text);
+
+            answer = current_Q.answer.sort();
+            total_Q_number = data.length;
+            startTimer((current_Q.time), data.index, data.length);
+            startPointTimer();
+        }
+    })
+    // var m = 60*1000, r = document.getElementById("clock");
+    //     var t = setInterval(function () {
+    //         m--;
+    //         var min = Math.floor(m / 60000),
+    //         sec = Math.floor((m % 60000) / 1000);
+    //         mil = (m % 60000) % 1000; r.innerHTML = min + ":" + sec + ":" + mil;}, 1)
+    var sec;
+    var mil;
+
+    function startTimer(time, index, l) {
+
+        var interval = setInterval(timer, 1000);
+        // var milisecond = setInterval(()=>{ms++}, 1);
+        let time_ele = document.getElementById("timer");
+        function timer() {
+            temp++;
+            time_ele.innerHTML = time;
+            count++;
+            time--;
+
+            if (time == -1) {
+                clearInterval(interval);
+                document.getElementById("options").style.display = "none"
+                document.getElementById("ansblock").style.display = "block"
+                // options
+                //     document.getElementById("options").innerHTML = '';
+                correct.forEach((elm) => {
+                    const corVal = elm.value
+                    // console.log("corvfal is " + corVal)
+                    let elmId = elm.id
+                    // console.log("ans is" + answer)
+                    if (corVal == answer[0] || corVal == answer[1] || corVal == answer[2] || corVal == answer[3]) {
+                        // console.log("ele id is" + elmId)
+                        // $(`#${elmId}`).css('border', '2px solid #41AD01')
+                        $(`#${elmId}`).css('background', '#41AD01')
+                        $(`#${elmId}`).css('color', '#fff')
+                        //  elmId.style.border= ("2px solid #41AD01");
+                        if (elmId == 'a1') {
+                            color1 = '#41AD01'
+                        }
+                        if (elmId == 'a2') {
+                            color2 = '#41AD01'
+                        }
+                        if (elmId == 'a3') {
+                            color3 = '#41AD01'
+                        }
+                        if (elmId == 'a4') {
+                            color4 = '#41AD01'
+                        }
+                    } else {
+                        if (elm.id == 'a1') {
+                            color1 = '#606060'
+                        }
+                        if (elm.id == 'a2') {
+                            color2 = '#606060'
+                        }
+                        if (elm.id == 'a3') {
+                            color3 = '#606060'
+                        }
+                        if (elm.id == 'a4') {
+                            color4 = '#606060'
+                        }
+                        $(`#${elmId}`).css('background', '#F40421')
+                        $(`#${elmId}`).css('color', '#fff')
+                        // $(`#${elm.id}`).css('border', '2px solid #F40421')
+                    }
+                })
+
+                // console.log('time before zero: ' + ms);
+                // clearInterval(milisecond);
+                // console.log('time zero: ' + ms);
+                setTimeout(() => {
+                    const inter = setInterval(tmr, 1000)
+                    let inTime = 10
+                    // loadanswerpage()
+                    show_option_click()
+                    function tmr() {
+                        inTime--
+                        console.log(inTime)
+                        if (inTime == 5) {
+                            get_leader_board()
+                            console.log("in 5555555555555555")
+                            loadscoreboard(index);
+                            // document.getElementById("scoreboard").style.display = ("none");
+                            // document.getElementById("ads").style.display = ("block");
+
+                            // const inter2 = setInterval(tmr2, 1000)
+                            // let inTime2 = 5
+                            // function tmr2() {
+                            //     inTime2--
+                            //     document.getElementById('ads').style.display = 'block'
+                            //     console.log("time is -----"+ inTime2)
+                            //     if (inTime2 == -1) {
+                            //         clearInterval()
+                            //         console.log("yesb end of era")
+                            //     }
+                            // }
+                        }
+                        if (inTime == -1) {
+
+                            clearInterval(inter)
+                            console.log("end of era")
+                        }
+                    }
+                }, 5000);
+                index++;
+                Q_index_count = index;
+                console.log('index : ' + index);
+                if (index < l) {
+                    console.log('call');
+                    socket.emit('index', { index: index });
+                } else {
+                    // time_ele.innerHTML = "game end";
+                }
+            }
+        }
+    }
+    var milisecond = 0;
+    function startPointTimer() {
+        var interval = setInterval(timer, 1);
+        function timer() {
+            milisecond++;
+            clearInterval(interval);
+        }
+    }
+
+    function get_leader_board() {
+        // console.log('9. in leaderboard');
+        socket.emit('leaderboard', { userId: userId });
+    }
+
+    socket.on('end part', function (data) {
+        document.getElementById("scoreboard").style.display = ("none");
+        document.getElementById("rankpage").style.display = ("block");
+        document.getElementById("rNametxt").innerText = data.user.name;
+        document.getElementById("rScore").innerText = `${data.user.rank}/${data.tot_user}`;
+        document.getElementById("rScore_score").innerText = data.user.point;
+        document.getElementById("sTxt").innerText = data.user.right;
+        document.getElementById("sTxt_in").innerText = data.user.wrong;
+        console.log(data);
+        console.log('right answer: ' + data.user.right);
+        console.log('wrong answer: ' + data.user.wrong);
+        console.log('rank: ' + data.user.rank);
+        console.log('total_user' + data.tot_user);
+    });
+
+    socket.on('get score', function (data) {
+        console.log("hello get scoreeee")
+        // console.log(data.users);
+        $("#tb1 tr").text('');
+        $(".table").text('');
+        let all_rank = 1;
+        for (let i = 0; i < data.users.length; i++) {
+            const element = data.users[i];
+            if (element._id == userId) {
+                console.log("ramk is" + all_rank)
+                $('#tb1').append('<tr>' +
+                    '<td>' + all_rank + '</td>' +
+                    '<td> ' + element.name + ' </td > ' +
+                    '<td>' + element.point + ' </td >' +
+                    + '</tr > ');
+            }
+
+
+            if (element._id == userId) {
+                console.log('rankkkkkk: ' + all_rank);
+                socket.emit('rank', { rank: all_rank, userId: userId });
+            }
+            if ((i + 1) < data.users.length && element.point !== data.users[(i + 1)].point) {
+                all_rank++;
+            }
+        }
+        for (let j = 0; j < data.users.length; j++) {
+            const ele = data.users[j];
+            $(".table").append('<tr>' +
+                '<td>' + all_rank + '</td>' +
+                '<td> ' + ele.name + ' </td > ' +
+                '<td>' + ele.point + ' </td >'
+                + '</tr > ');
+        }
+        setTimeout(() => {
+            console.log('next call :' + Q_index_count);
+            if (Q_index_count < total_Q_number) {
+                socket.emit('next', { index: Q_index_count });
+            } else {
+                console.log('calling game end: ' + userId);
+                socket.emit('game end', { userId: userId });
+            }
+        }, 5000);
+    });
+
+    function show_option_click() {
+        console.log("show option showd ---------------")
+        document.getElementById("questionspage").style.display = ("none");
+        console.log("asdf")
+        document.getElementById("answerpage").style.display = ("block");
+        // $.ajax('/g/rank', {
+        //     method: 'POST',
+        //     data: { userId: userId },
+        //     success: function (data, status, xhr) {
+        //         console.log("data received from be: " + data.rank);
+        //     },
+        //     error: function (jqXhr, textStatus, errorMessage) {
+        //         document.getElementById('show_username').innerHTML = "exost";
+        //     }
+        // });
+        // correct.forEach((elm) => {
+        // const corVal = elm.value
+
+        // if (corVal == answer[0] || corVal == answer[1] || corVal == answer[2] || corVal == answer[3]) {
+        //     const elmId = elm.id
+        //     $(`#${elmId}`).css('border', '2px solid #41AD01')
+        // } else {
+        //     $(`#${elm.id}`).css('border', '2px solid #F40421')
+        // }
+        let color1;
+        let color2;
+        let color3;
+        let color4;
+        correct.forEach((elm) => {
+            const corVal = elm.value
+            // let iframe = document.getElementById('frameID'),
+            //     iframeWin = iframe.contentWindow || iframe,
+            //     iframeDoc = iframe.contentDocument || iframeWin.document;
+            if (corVal == answer[0] || corVal == answer[1] || corVal == answer[2] || corVal == answer[3]) {
+                let elmId = elm.id
+
+                // $(`#${elmId}`).css('border', '2px solid #41AD01')
+                //  elmId.style.border= ("2px solid #41AD01");
+                if (elmId == 'a1') {
+                    color1 = '#41AD01'
+                }
+                if (elmId == 'a2') {
+                    color2 = '#41AD01'
+                }
+                if (elmId == 'a3') {
+                    color3 = '#41AD01'
+                }
+                if (elmId == 'a4') {
+                    color4 = '#41AD01'
+                }
+            } else {
+                if (elm.id == 'a1') {
+                    color1 = '#606060'
+                }
+                if (elm.id == 'a2') {
+                    color2 = '#606060'
+                }
+                if (elm.id == 'a3') {
+                    color3 = '#606060'
+                }
+                if (elm.id == 'a4') {
+                    color4 = '#606060'
+                }
+
+                // $(`#${elm.id}`).css('border', '2px solid #F40421')
+            }
+
+        })
+
+
+
+
+        google.charts.load("current", { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ["Element", "Density", { role: "style" }],
+                ["A", op_a, color1],
+                ["B", op_b, color2],
+                ["C", op_c, color3],
+                ["D", op_d, color4]
+            ]);
+
+            var view = new google.visualization.DataView(data);
+            view.setColumns([0, 1,
+                {
+                    calc: "stringify",
+                    sourceColumn: 1,
+                    type: "string",
+                    role: "annotation"
+                },
+                2]);
+
+            var options = {
+                // title: "Density of Precious Metals, in g/cm^3",
+                // width: 60,
+                // height: 40,
+                bar: { groupWidth: "65%" },
+                legend: { position: "none" },
+                vAxis: {
+                    gridlines: {
+                        count: 0
+                    },
+                    textPosition: 'out'
+                },
+                hAxis: {
+                    textPosition: 'out',
+                    baselineColor: '#fff',
+                    fontSize: 18,
+                    fontName: "sans-serif",
+                    bold: true
+                },
+                annotations: {
+                    alwaysOutside: false,
+                    textPosition: 'out',
+                    textStyle: {
+                        fontSize: 18,
+                        // auraColor: 'none',
+                        fontName: "sans-serif",
+                        bold: true
+                    }
+                },
+                textPosition: 'none',
+                backgroundColor: 'transparent',
+                is3D: true,
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+            chart.draw(view, options);
+        }
+    }
+
+    function disb(id) {
+        let diseb = document.getElementById(id);
+        diseb.style.border = ('2px solid #a900f1');
+    }
+
+    function btnClick(id) {
+
+        let value = document.getElementById(id).value;
+        let btnb = document.getElementById(id);
+        btnb.style.border = ('2px solid #a900f1');
+        if (value == answer[0]) {
+            // let point = point_calculate();
+            socket.emit('add point', { userId: userId, point: null, right: true, wrong: false });
+        } else {
+            socket.emit('add point', { userId: userId, point: null, right: false, wrong: true });
+        }
+        socket.emit('option click', { option: id });
+        let q0 = document.getElementById('q0')
+        q0.disabled = true;
+        // q0.style.background= "ccc";
+        let q1 = document.getElementById('q1')
+        q1.disabled = true;
+        // q1.style.background= "ccc";
+        let q2 = document.getElementById('q2')
+        q2.disabled = true;
+        // q3.style.background= "ccc";
+        let q3 = document.getElementById('q3')
+        q3.disabled = true;
+    }
+    function btnSubmit() {
+        document.getElementById('submit').disabled = true;
+        document.getElementById('submit').style.background = ('#ccc');
+
+        let value = []; // answer
+        let id = []; // option
+        $("input[type=checkbox]:checked").each(function () {
+            value.push(this.value);
+            id.push(this.id);
+        });
+
+        value = value.sort();
+        console.log('value get');
+        if (equals(value, answer)) {
+            console.log('value matched')
+            // let point = point_calculate();
+            socket.emit('add point', { userId: userId, point: null, right: true, wrong: false });
+        } else {
+            console.log('wrong answer');
+            socket.emit('add point', { userId: userId, point: null, right: false, wrong: true });
+        }
+        socket.emit('option click', { option: id });
+    }
+
+    function point_calculate() {
+        let point;
+        console.log(ms, count);
+        // if (mil.toString().length < 3) {
+        //     mil = padLeadingZeros(mil, (mil.toString().length+1));
+        // }
+        console.log(sec, mil);
+        // point = Math.floor(point - ((sec * 100) + Math.floor(mil / 10)));
+        point = 1;
+        console.log("point" + point)
+        // if(mil)
+        // if (count < 20) {
+        //     point = current_Q.point - (count * 2);
+        // }
+        // else {
+        //     point = current_Q.point - 40;
+        // }
+
+        return point;
+    }
+
+    function padLeadingZeros(num, size) {
+        var s = num + "";
+        while (s.length < size) s = "0" + s;
+        return s;
+    }
+
+    const equals = (a, b) =>
+        a.length === b.length &&
+        a.every((v, i) => v === b[i]);
+
+    socket.on('option count', function (data) {
+        document.getElementById("answer_count").innerHTML = data.answered_user;
+        option = data.option_click
+        op_a = option['q0'];
+        op_b = option['q1'];
+        op_c = option['q2'];
+        op_d = option['q3'];
+    });
+
+    // socket.on('get rank', function (data) {
+    //     console.log("rank from app.js: " + data.rank)
+    //     rank = data.rank;
+    // })
+
+</script>
